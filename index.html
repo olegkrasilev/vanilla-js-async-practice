@@ -4,7 +4,79 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <!-- Tailwind -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Tailwind -->
   </head>
-  <body></body>
+  <body>
+    <main>
+      <div class="container mx-auto px-4">
+        <div
+          id="products-list"
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 p-4"
+        ></div>
+      </div>
+    </main>
+  </body>
   <script type="module" src="./src/app.js"></script>
+
+  <!-- Card Template -->
+  <template id="product-card-template">
+    <div
+      class="group bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 ease-in-out overflow-hidden flex flex-col justify-between border border-gray-100"
+    >
+      <div
+        class="relative w-full h-52 bg-gray-50 p-4 overflow-hidden flex items-center justify-center"
+      >
+        <img
+          data-field="image"
+          class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+          src=""
+          alt=""
+        />
+      </div>
+      <div class="p-5 flex flex-col flex-grow justify-between">
+        <div>
+          <h3
+            data-field="title"
+            class="font-semibold text-base mb-1.5 text-gray-900 tracking-tight line-clamp-1"
+          ></h3>
+          <p
+            data-field="description"
+            class="text-gray-500 text-xs leading-relaxed mb-6 line-clamp-2"
+          ></p>
+        </div>
+        <div
+          class="flex items-center justify-between mt-auto pt-2 border-t border-gray-50"
+        >
+          <span
+            data-field="price"
+            class="text-lg font-bold text-gray-900 tracking-tight"
+          ></span>
+          <button
+            class="bg-gray-900 text-white px-4 py-2 rounded-lg text-xs font-medium hover:bg-gray-800 active:scale-95 transition-all duration-150 shadow-sm"
+          >
+            Купить
+          </button>
+        </div>
+      </div>
+    </div>
+  </template>
+  <!-- Card Template -->
+
+  <!-- Spinner -->
+  <div
+    id="loading"
+    class="hidden fixed inset-0 bg-white/80 backdrop-blur-sm z-50 flex justify-center items-center"
+  >
+    <div
+      class="animate-spin rounded-full h-12 w-12 border-4 border-blue-500 border-t-transparent"
+    ></div>
+  </div>
+
+  <!-- Error Message -->
+  <div
+    id="error"
+    class="hidden fixed inset-0 z-50 flex justify-center items-center text-red-700 px-4 py-3 rounded text-center"
+  ></div>
 </html>
